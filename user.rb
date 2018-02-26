@@ -2,7 +2,7 @@ require 'json'
 
 class User
   
-  attr_accesor :name, :email, :permissions
+  attr_accessor :name, :email, :permissions
   
   def initialize(*args)
     @email = args[0]
@@ -11,8 +11,8 @@ class User
   end
   
   def permissions_from_template
-    file = File.read 'users_perrmision_template.json'
-    JSON.load(file, nil, symbolize_names: true)
+    file = File.read 'user_perrmission_template.json'
+    JSON.load(file, nil)
   end
   
   def save
